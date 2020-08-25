@@ -2,16 +2,16 @@
 class Courier < Formula
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "0.2.0"
+  version "0.2.2"
   bottle :unneeded
 
   if OS.mac?
-    url "https://cdn.blutui.com/courier/v0.2.0/courier_0.2.0_macOS_64-bit.tar.gz"
-    sha256 "8564e1a86950d70298c90b84d7b8555184d8d7d68b05ab267d0aa5970803a3ac"
+    url "https://cdn.blutui.com/courier/v0.2.2/courier_0.2.2_macOS_64-bit.tar.gz"
+    sha256 "5c94cd1bb0b34c834952b937263703db9166749bf8149ec81a4c3d62a74c99a2"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.2.0/courier_0.2.0_linux_64-bit.tar.gz"
-      sha256 "ea41a518cd40e87f54ed71148db2d6189bf7bdb53a036460075f3489c935f8d8"
+      url "https://cdn.blutui.com/courier/v0.2.2/courier_0.2.2_linux_64-bit.tar.gz"
+      sha256 "80f0c5b21d163283137a29aa3d03397f7de6861a5f6988831355ba3df889f0cd"
     end
   end
 
@@ -20,7 +20,7 @@ class Courier < Formula
   end
 
   def caveats; <<~EOS
-    How to use this binary
+    Dont forget to add .courier in the .gitignore file of each project
   EOS
   end
 end
