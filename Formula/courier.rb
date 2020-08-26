@@ -2,16 +2,16 @@
 class Courier < Formula
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "0.2.5"
+  version "0.2.4"
   bottle :unneeded
 
   if OS.mac?
-    url "https://cdn.blutui.com/courier/v0.2.5/courier_0.2.5_macOS_64-bit.tar.gz"
-    sha256 "e6a4eb21e270f4cd32a77f983fe6593ea2d32922856fdd19cdabdf8ef02f812c"
+    url "https://cdn.blutui.com/courier/v0.2.4/courier_0.2.4_macOS_64-bit.tar.gz"
+    sha256 "de80efc7cd183a6fba8d7f1859dbd83f6ef4854b5a5f354cd0544e3ccf48654c"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.2.5/courier_0.2.5_linux_64-bit.tar.gz"
-      sha256 "a1b6e4962a1216ddd9c17a4c3fe44fc04bd61e9a69e462f29c4e7758547818a4"
+      url "https://cdn.blutui.com/courier/v0.2.4/courier_0.2.4_linux_64-bit.tar.gz"
+      sha256 "35a9b1bcffdff99d18a08bb69cad016d95376ac71f648583ac1fe7b31c4029f2"
     end
   end
 
