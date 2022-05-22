@@ -5,23 +5,31 @@
 class Courier < Formula
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "0.2.13"
+  version "0.2.14"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.2.13/courier_0.2.13_macOS_64-bit.tar.gz"
-      sha256 "3a1d6295a58debdcf5c8a4e58f7f3357c7cffcf2d9d341dceab7207f59c06c58"
+    url "https://cdn.blutui.com/courier/v0.2.14/courier_0.2.14_macOS_64-bit.tar.gz"
+    sha256 "ec720c78d7af5b483a9e1a2b5f1d82fcbb4fc01201a3c79cad97ee8ebf32e124"
 
-      def install
-        bin.install "courier"
+    def install
+      bin.install "courier"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the Courier
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.2.13/courier_0.2.13_linux_64-bit.tar.gz"
-      sha256 "11cd7671be1ffa77641b061d047ee231060124ba831f3d6a279e65eb3a0971eb"
+      url "https://cdn.blutui.com/courier/v0.2.14/courier_0.2.14_linux_64-bit.tar.gz"
+      sha256 "b2221c645313df5b9930c3fee307bb21169f5c50bcb55837ab14d75dde072859"
 
       def install
         bin.install "courier"
