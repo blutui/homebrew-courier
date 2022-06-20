@@ -5,11 +5,11 @@
 class Courier < Formula
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "0.2.14"
+  version "0.3.0"
 
   on_macos do
-    url "https://cdn.blutui.com/courier/v0.2.14/courier_0.2.14_macOS_64-bit.tar.gz"
-    sha256 "ec720c78d7af5b483a9e1a2b5f1d82fcbb4fc01201a3c79cad97ee8ebf32e124"
+    url "https://cdn.blutui.com/courier/v0.3.0/courier_0.3.0_macOS_64-bit.tar.gz"
+    sha256 "27411caefd0b85cd5e5878ecc655ac650e1003aa46fc9233fcc87bffccf40e62"
 
     def install
       bin.install "courier"
@@ -28,8 +28,8 @@ class Courier < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.2.14/courier_0.2.14_linux_64-bit.tar.gz"
-      sha256 "b2221c645313df5b9930c3fee307bb21169f5c50bcb55837ab14d75dde072859"
+      url "https://cdn.blutui.com/courier/v0.3.0/courier_0.3.0_linux_64-bit.tar.gz"
+      sha256 "379820c918105a80156b66d25bc436bb58b4aa1e721a69192ffa82c78abd7976"
 
       def install
         bin.install "courier"
