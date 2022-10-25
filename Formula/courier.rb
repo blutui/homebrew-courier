@@ -5,11 +5,11 @@
 class Courier < Formula
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "0.3.1"
+  version "0.3.2"
 
   on_macos do
-    url "https://cdn.blutui.com/courier/v0.3.1/courier_0.3.1_macOS_64-bit.tar.gz"
-    sha256 "644f8a90b36b54eb15ba78806e3ce7aae4c5cd054dc63342aedd88d4edb8420d"
+    url "https://cdn.blutui.com/courier/v0.3.2/courier_0.3.2_macOS_64-bit.tar.gz"
+    sha256 "31e3728a597d2c598d84041771ef873cd98fec0588f7692c44d2c943d4b4527d"
 
     def install
       bin.install "courier"
@@ -28,8 +28,8 @@ class Courier < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.3.1/courier_0.3.1_linux_64-bit.tar.gz"
-      sha256 "160cdd75629fcabf1aa6491d89bcef8a137c7a00cce4f676ec066d57d335dd0a"
+      url "https://cdn.blutui.com/courier/v0.3.2/courier_0.3.2_linux_64-bit.tar.gz"
+      sha256 "53a3dc82951315ff2a64f1d200cb626340c64596c7b5d81e567a7e627520e5b3"
 
       def install
         bin.install "courier"
@@ -37,8 +37,9 @@ class Courier < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Dont forget to add .courier in the .gitignore file of each project
-  EOS
+  def caveats
+    <<~EOS
+      Dont forget to add .courier in the .gitignore file of each project
+    EOS
   end
 end
