@@ -5,31 +5,39 @@
 class Courier < Formula
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "0.3.2"
+  version "0.4.0"
 
   on_macos do
-    url "https://cdn.blutui.com/courier/v0.3.2/courier_0.3.2_macOS_64-bit.tar.gz"
-    sha256 "31e3728a597d2c598d84041771ef873cd98fec0588f7692c44d2c943d4b4527d"
+    if Hardware::CPU.intel?
+      url "https://cdn.blutui.com/courier/v0.4.0/courier_0.4.0_macOS_64-bit.tar.gz"
+      sha256 "1e675b8ee6c72408809756f37658d0b469fdd8c049a0f1d3e8177f8cbfc671ec"
 
-    def install
-      bin.install "courier"
+      def install
+        bin.install "courier"
+      end
     end
-
     if Hardware::CPU.arm?
-      def caveats
-        <<~EOS
-          The darwin_arm64 architecture is not supported for the Courier
-          formula at this time. The darwin_amd64 binary may work in compatibility
-          mode, but it might not be fully supported.
-        EOS
+      url "https://cdn.blutui.com/courier/v0.4.0/courier_0.4.0_macOS_arm64.tar.gz"
+      sha256 "8a9c3dc704e8c3d8b65595c872e926b29d25eafe753c5e215e0c38e3dcd97479"
+
+      def install
+        bin.install "courier"
       end
     end
   end
 
   on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://cdn.blutui.com/courier/v0.4.0/courier_0.4.0_linux_arm64.tar.gz"
+      sha256 "fcf54cf0c03ce0ad5d5f926e37591f889ff2ec0b950b5218c91cc9ed485cf574"
+
+      def install
+        bin.install "courier"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.3.2/courier_0.3.2_linux_64-bit.tar.gz"
-      sha256 "53a3dc82951315ff2a64f1d200cb626340c64596c7b5d81e567a7e627520e5b3"
+      url "https://cdn.blutui.com/courier/v0.4.0/courier_0.4.0_linux_64-bit.tar.gz"
+      sha256 "112815b9b2b22035acc4ad523d83f61935b27bee17a3924b2c4b070b5f6154c1"
 
       def install
         bin.install "courier"
@@ -39,7 +47,7 @@ class Courier < Formula
 
   def caveats
     <<~EOS
-      Dont forget to add .courier in the .gitignore file of each project
+      Dont forget to add the .courier directory in your .gitignore file.
     EOS
   end
 end
