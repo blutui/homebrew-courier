@@ -5,20 +5,20 @@
 class Courier < Formula
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "0.5.0"
+  version "0.5.1"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://cdn.blutui.com/courier/v0.5.0/courier_0.5.0_macOS_arm64.tar.gz"
-      sha256 "ff802abe5822e8cef94118874c12e26e23781164f46eff01116e5816666c4d1d"
+    if Hardware::CPU.intel?
+      url "https://cdn.blutui.com/courier/v0.5.1/courier_0.5.1_macOS_64-bit.tar.gz"
+      sha256 "a7dfd3c5bb649937f29b7bf34c5bdd1a8cb59b621406bfb0909c489681ba9656"
 
       def install
         bin.install "courier"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.5.0/courier_0.5.0_macOS_64-bit.tar.gz"
-      sha256 "732516a15aa450d99a9dabac24f613ca297a0c3adac0c0edca5c52215d0e66ae"
+    if Hardware::CPU.arm?
+      url "https://cdn.blutui.com/courier/v0.5.1/courier_0.5.1_macOS_arm64.tar.gz"
+      sha256 "f8c59a5e74c705ce07f3de64a0e74530799f7df68dfb2e13ebaa06197ded700a"
 
       def install
         bin.install "courier"
@@ -27,17 +27,17 @@ class Courier < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://cdn.blutui.com/courier/v0.5.0/courier_0.5.0_linux_arm64.tar.gz"
-      sha256 "b61ff56a4f02db26d2c7dcbd35fe97211ed5bd1c54246d05ed9e0a0158350458"
+    if Hardware::CPU.intel?
+      url "https://cdn.blutui.com/courier/v0.5.1/courier_0.5.1_linux_64-bit.tar.gz"
+      sha256 "1b3a55416a1e507a394f81c7e2a13119c93e45692180851a369da9a8a3142f48"
 
       def install
         bin.install "courier"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.5.0/courier_0.5.0_linux_64-bit.tar.gz"
-      sha256 "1972f05851dfbe2a1dedc57f960293ffddd93cafbaf584b7262672758c2fb383"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://cdn.blutui.com/courier/v0.5.1/courier_0.5.1_linux_arm64.tar.gz"
+      sha256 "eb7f9cada7edb33b122e952ce8317d14704b6fa5c4d0a82397206e978f7ff0ad"
 
       def install
         bin.install "courier"
