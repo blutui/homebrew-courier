@@ -5,20 +5,20 @@
 class Courier < Formula
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "0.6.1"
+  version "0.6.2"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.6.1/courier_0.6.1_macOS_64-bit.tar.gz"
-      sha256 "1c48979cf6ac3eb95dc9465b220715fb18297f84a572538d0ee8ae4c0a4f0778"
+    on_intel do
+      url "https://cdn.blutui.com/courier/v0.6.2/courier_0.6.2_macOS_64-bit.tar.gz"
+      sha256 "8e1c63c1bd5d598e70b1d26cd59603cb6df4991a86ce6a9dce663aba68c94f46"
 
       def install
         bin.install "courier"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://cdn.blutui.com/courier/v0.6.1/courier_0.6.1_macOS_arm64.tar.gz"
-      sha256 "571e4940c7728a8fb19fa0c27fc1a64a23b4c1ba8557d99b445e7d14e9481ec2"
+    on_arm do
+      url "https://cdn.blutui.com/courier/v0.6.2/courier_0.6.2_macOS_arm64.tar.gz"
+      sha256 "c71860e9079063415f8810c49226001e200001c05e47c98cc54509904a32a6c5"
 
       def install
         bin.install "courier"
@@ -27,20 +27,24 @@ class Courier < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v0.6.1/courier_0.6.1_linux_64-bit.tar.gz"
-      sha256 "a5124d28fa2d7fcfd277a9cff27172f38e68d18cbc2ceea1dfe0c1857e2f9c74"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://cdn.blutui.com/courier/v0.6.2/courier_0.6.2_linux_64-bit.tar.gz"
+        sha256 "258ededfa2eb753843e32ce5fc0a1cb760d566182d80cd426d452fc8fc588238"
 
-      def install
-        bin.install "courier"
+        def install
+          bin.install "courier"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://cdn.blutui.com/courier/v0.6.1/courier_0.6.1_linux_arm64.tar.gz"
-      sha256 "b4965cec718330e808c480ce8bfd77a75acc75e70cf92e1963c2fa6a74553310"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://cdn.blutui.com/courier/v0.6.2/courier_0.6.2_linux_arm64.tar.gz"
+        sha256 "265a3966f98c141b46840b59dbe9fb8f6d4dafbacb8c201e8d718d2f57de1a95"
 
-      def install
-        bin.install "courier"
+        def install
+          bin.install "courier"
+        end
       end
     end
   end
