@@ -5,20 +5,20 @@
 class Courier < Formula
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "1.1.2"
+  version "1.2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://cdn.blutui.com/courier/v1.1.2/courier_1.1.2_mac-os_x86_64.tar.gz"
-      sha256 "29e8d8f76dc32ccd5bf0a0345f9a1aca14c1df0599311408214056e5d1db1f3f"
+      url "https://cdn.blutui.com/courier/v1.2.0/courier_1.2.0_mac-os_x86_64.tar.gz"
+      sha256 "1133e02bd79d406109dc580a5284aaefa63246fd68d9d4366f57b6bbfe9ac04d"
 
       def install
         bin.install "courier"
       end
     end
     if Hardware::CPU.arm?
-      url "https://cdn.blutui.com/courier/v1.1.2/courier_1.1.2_mac-os_arm64.tar.gz"
-      sha256 "9e2c9ff4a02bfc9f6ff7055e106c5312f2db73e3f636cc809b96fad3f6f22278"
+      url "https://cdn.blutui.com/courier/v1.2.0/courier_1.2.0_mac-os_arm64.tar.gz"
+      sha256 "8e62d94e2471447138a99a63fb24c03938710a5f70357a540cd8de2bd856ee20"
 
       def install
         bin.install "courier"
@@ -27,24 +27,18 @@ class Courier < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      if Hardware::CPU.is_64_bit?
-        url "https://cdn.blutui.com/courier/v1.1.2/courier_1.1.2_linux_x86_64.tar.gz"
-        sha256 "45a90a4e44c6ecbde672f201dd43a2125ad54188fed95baa40b56cf633d3e45f"
-
-        def install
-          bin.install "courier"
-        end
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://cdn.blutui.com/courier/v1.2.0/courier_1.2.0_linux_x86_64.tar.gz"
+      sha256 "d33984794a65b1142a063a91244b906358a040f44bd98e41a2362665c2ff543f"
+      def install
+        bin.install "courier"
       end
     end
-    if Hardware::CPU.arm?
-      if Hardware::CPU.is_64_bit?
-        url "https://cdn.blutui.com/courier/v1.1.2/courier_1.1.2_linux_arm64.tar.gz"
-        sha256 "96d30bfe412e5ca5f6366b2fb1d21784e2a400dba91890d9a38fa327a6e5a711"
-
-        def install
-          bin.install "courier"
-        end
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://cdn.blutui.com/courier/v1.2.0/courier_1.2.0_linux_arm64.tar.gz"
+      sha256 "bb140146dce6db2a9a61619b89067746d832ac3859b94ce014ce35c537a83c54"
+      def install
+        bin.install "courier"
       end
     end
   end
