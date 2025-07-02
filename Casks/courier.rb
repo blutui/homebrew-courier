@@ -2,7 +2,7 @@
 cask "courier" do
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "1.2.1"
+  version "1.2.2"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,27 +12,37 @@ cask "courier" do
 
   on_macos do
     on_intel do
-      url "https://cdn.blutui.com/courier/v1.2.1/courier_1.2.1_mac-os_x86_64.tar.gz",
+      url "https://cdn.blutui.com/courier/v1.2.2/courier_1.2.2_mac-os_x86_64.tar.gz",
         verified: "cdn.blutui.com/courier"
-      sha256 "aac4942092c036237e0428237b514741ed249d94f224e98b17118fc7f441089c"
+      sha256 "2a6107cb88cd024d8b37d416494cef2225520874bea838c4a07dac2f3cbc0ce3"
     end
     on_arm do
-      url "https://cdn.blutui.com/courier/v1.2.1/courier_1.2.1_mac-os_arm64.tar.gz",
+      url "https://cdn.blutui.com/courier/v1.2.2/courier_1.2.2_mac-os_arm64.tar.gz",
         verified: "cdn.blutui.com/courier"
-      sha256 "18b8c308bfdf64de7ca1bd0b7887f63e9fc5f02b06007ce895f7822190cc21b0"
+      sha256 "17f6dd47feedd690c31ff5ebb1c138f652bf43ed17bda321cd87d1324d5d55cf"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://cdn.blutui.com/courier/v1.2.1/courier_1.2.1_linux_x86_64.tar.gz",
+      url "https://cdn.blutui.com/courier/v1.2.2/courier_1.2.2_linux_x86_64.tar.gz",
         verified: "cdn.blutui.com/courier"
-      sha256 "dd3d26bfa7f7af5afd57969dd46f508227c742c59b51aadfc10da14f51417212"
+      sha256 "9e22b0a8f59fcae5960f703fab1813981c3d953869b7a9b8d6a336e9346fbd78"
     end
     on_arm do
-      url "https://cdn.blutui.com/courier/v1.2.1/courier_1.2.1_linux_arm64.tar.gz",
+      url "https://cdn.blutui.com/courier/v1.2.2/courier_1.2.2_linux_arm64.tar.gz",
         verified: "cdn.blutui.com/courier"
-      sha256 "17966b8b6d233806faa92d1d5c7028050b335c07b80c1335373c715d044697fd"
+      sha256 "3e8fd3bd5c2e340e1357ec9f6e9da055b0ee2d6c4a8e3d9acda47ba089ba36b5"
+    end
+  end
+
+  conflicts_with formula: [
+      "courier",
+    ]
+
+  postflight do
+    if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/courier"]
     end
   end
 
