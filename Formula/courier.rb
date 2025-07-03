@@ -5,7 +5,8 @@
 class Courier < Formula
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "1.2.0"
+  version "1.2.1"
+  disable! date: "2025-07-02", because: "the cask should be used now instead", replacement_cask: "courier"
 
   on_macos do
     if Hardware::CPU.intel?
