@@ -2,7 +2,7 @@
 cask "courier" do
   desc "Blutui Courier CLI"
   homepage "https://blutui.com"
-  version "1.2.2"
+  version "1.3.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,27 +12,27 @@ cask "courier" do
 
   on_macos do
     on_intel do
-      url "https://cdn.blutui.com/courier/v1.2.2/courier_1.2.2_mac-os_x86_64.tar.gz",
+      url "https://cdn.blutui.com/courier/v1.3.0/courier_1.3.0_mac-os_x86_64.tar.gz",
         verified: "cdn.blutui.com/courier"
-      sha256 "2a6107cb88cd024d8b37d416494cef2225520874bea838c4a07dac2f3cbc0ce3"
+      sha256 "1104bba1168f5bda753171bdf16b4897ab949cc409e6ae46bc8dd74399fc1487"
     end
     on_arm do
-      url "https://cdn.blutui.com/courier/v1.2.2/courier_1.2.2_mac-os_arm64.tar.gz",
+      url "https://cdn.blutui.com/courier/v1.3.0/courier_1.3.0_mac-os_arm64.tar.gz",
         verified: "cdn.blutui.com/courier"
-      sha256 "17f6dd47feedd690c31ff5ebb1c138f652bf43ed17bda321cd87d1324d5d55cf"
+      sha256 "5ffc7c3d302298dee704a366dbef4c01af04b7d4efc65394def5526f75ce043b"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://cdn.blutui.com/courier/v1.2.2/courier_1.2.2_linux_x86_64.tar.gz",
+      url "https://cdn.blutui.com/courier/v1.3.0/courier_1.3.0_linux_x86_64.tar.gz",
         verified: "cdn.blutui.com/courier"
-      sha256 "9e22b0a8f59fcae5960f703fab1813981c3d953869b7a9b8d6a336e9346fbd78"
+      sha256 "e786a3212c0884e95f38dc0360fc8a2b91c59f18e9b746713d125a76fcc007a2"
     end
     on_arm do
-      url "https://cdn.blutui.com/courier/v1.2.2/courier_1.2.2_linux_arm64.tar.gz",
+      url "https://cdn.blutui.com/courier/v1.3.0/courier_1.3.0_linux_arm64.tar.gz",
         verified: "cdn.blutui.com/courier"
-      sha256 "3e8fd3bd5c2e340e1357ec9f6e9da055b0ee2d6c4a8e3d9acda47ba089ba36b5"
+      sha256 "81e5fc7b74c7af37a5e7339048d8d956d144d1edbad9f728da9f084259f17684"
     end
   end
 
